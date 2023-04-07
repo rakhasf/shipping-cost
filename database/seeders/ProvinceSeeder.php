@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\app\Models\Province;
+use App\Models\Province;
 
 class ProvinceSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class ProvinceSeeder extends Seeder
     public function run(): void
     {
         $file = file_get_contents(base_path('/database/provinsi.json'));
-        $data = json_encode($file, true);
+        $data = json_decode($file, true);
 
         Province::insert($data);
     }
